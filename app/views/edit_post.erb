@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Edit your boggy post!</h1>
+  <form action='/edit_post/<%=@post.id%>' method='post'>
+    Post Title:   <input type="text" placeholder="Post Title" name="title"><br><br>
+    Post:         <textarea rows='20' cols='50' wrap='on' placeholder="Write your post here!!" name="description"></textarea><br><br>
+    Tag Your Post: <input type="text" placeholder="Tag it!" name="tag[tag_name]"><br><br>            
+                   <input type="submit" value="Edit Post"><br><br>
+  </form>
+  <br>
+  <br>
+  <a href='/'>Home Page</a>
+</div>

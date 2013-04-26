@@ -20,10 +20,36 @@ get '/show_all_posts' do
  erb :view_all_posts
 end
 
-post '/edit_a_post' do
-  #edit a post
+get '/edit_post/:id' do
+  @post = Post.where(id: params[:id]).first
+  erb :edit_post
 end
 
-delete '/delete_a_post' do
+post '/edit_post/:id' do
+  @post = Post.where(id: params[:id]).first
+  puts "edit_post posted with id #{:id} and found post #{@post}"
+  if params[:title]
+    @post.title = params[:title]
+    @post.save
+  end
+  if params[:description]
+    @post.description = params[:description]
+    @post.save
+  end
+  erb :post_page
+end
+
+get '/delete_post/:id' do
+  @post = Post.where(id: params[:id]).first
+  @post.destroy
+  erb :index
   #delete a post
 end
+
+get '/post/:id' do
+ @post = Post.where(id: params[:id]).first
+ puts @post
+ erb :post_page
+end
+
+
