@@ -1,0 +1,10 @@
+<div class='container'>
+<h1> Here are all the posts! </h1>
+  <div><% @posts.each do |post| %>
+  <li>Title: <%= post.title %></li>
+  <li>Post: <%= post.description %></li><br>
+  <% end %>
+  <a href='/'>Home Page</a><br>
+  <a href='/create_new_post'>Create New Post</a>
+  </div>  
+</div>
